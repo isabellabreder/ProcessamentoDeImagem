@@ -46,11 +46,17 @@
             this.espelhamentoHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.espelhamentoVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.separarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotacionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretoBrancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aula2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictBoxImg1 = new System.Windows.Forms.PictureBox();
             this.pictBoxImg2 = new System.Windows.Forms.PictureBox();
-            this.rotacionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pretoBrancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aula3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.semDMAToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.comDMAToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fatiamentoDeBitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equalizaçãoDoHistogramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suavizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg2)).BeginInit();
@@ -81,7 +87,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exemplosToolStripMenuItem,
             this.aula1ToolStripMenuItem,
-            this.aula2ToolStripMenuItem});
+            this.aula2ToolStripMenuItem,
+            this.aula3ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1220, 24);
@@ -155,7 +162,7 @@
             // semDMAToolStripMenuItem1
             // 
             this.semDMAToolStripMenuItem1.Name = "semDMAToolStripMenuItem1";
-            this.semDMAToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.semDMAToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.semDMAToolStripMenuItem1.Text = "Sem DMA";
             // 
             // comDMAToolStripMenuItem1
@@ -168,7 +175,7 @@
             this.rotacionarToolStripMenuItem,
             this.pretoBrancoToolStripMenuItem});
             this.comDMAToolStripMenuItem1.Name = "comDMAToolStripMenuItem1";
-            this.comDMAToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.comDMAToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.comDMAToolStripMenuItem1.Text = "Com DMA";
             // 
             // espelhamentoDiagonalToolStripMenuItem
@@ -199,6 +206,20 @@
             this.separarToolStripMenuItem.Text = "Separar";
             this.separarToolStripMenuItem.Click += new System.EventHandler(this.separarToolStripMenuItem_Click);
             // 
+            // rotacionarToolStripMenuItem
+            // 
+            this.rotacionarToolStripMenuItem.Name = "rotacionarToolStripMenuItem";
+            this.rotacionarToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.rotacionarToolStripMenuItem.Text = "Rotacionar";
+            this.rotacionarToolStripMenuItem.Click += new System.EventHandler(this.rotacionarToolStripMenuItem_Click);
+            // 
+            // pretoBrancoToolStripMenuItem
+            // 
+            this.pretoBrancoToolStripMenuItem.Name = "pretoBrancoToolStripMenuItem";
+            this.pretoBrancoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.pretoBrancoToolStripMenuItem.Text = "PretoBranco";
+            this.pretoBrancoToolStripMenuItem.Click += new System.EventHandler(this.pretoBrancoToolStripMenuItem_Click);
+            // 
             // aula2ToolStripMenuItem
             // 
             this.aula2ToolStripMenuItem.Name = "aula2ToolStripMenuItem";
@@ -223,19 +244,51 @@
             this.pictBoxImg2.TabIndex = 105;
             this.pictBoxImg2.TabStop = false;
             // 
-            // rotacionarToolStripMenuItem
+            // aula3ToolStripMenuItem
             // 
-            this.rotacionarToolStripMenuItem.Name = "rotacionarToolStripMenuItem";
-            this.rotacionarToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.rotacionarToolStripMenuItem.Text = "Rotacionar";
-            this.rotacionarToolStripMenuItem.Click += new System.EventHandler(this.rotacionarToolStripMenuItem_Click);
+            this.aula3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.semDMAToolStripMenuItem2,
+            this.comDMAToolStripMenuItem2});
+            this.aula3ToolStripMenuItem.Name = "aula3ToolStripMenuItem";
+            this.aula3ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aula3ToolStripMenuItem.Text = "Aula 3";
             // 
-            // pretoBrancoToolStripMenuItem
+            // semDMAToolStripMenuItem2
             // 
-            this.pretoBrancoToolStripMenuItem.Name = "pretoBrancoToolStripMenuItem";
-            this.pretoBrancoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.pretoBrancoToolStripMenuItem.Text = "PretoBranco";
-            this.pretoBrancoToolStripMenuItem.Click += new System.EventHandler(this.pretoBrancoToolStripMenuItem_Click);
+            this.semDMAToolStripMenuItem2.Name = "semDMAToolStripMenuItem2";
+            this.semDMAToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.semDMAToolStripMenuItem2.Text = "Sem DMA";
+            // 
+            // comDMAToolStripMenuItem2
+            // 
+            this.comDMAToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fatiamentoDeBitsToolStripMenuItem,
+            this.equalizaçãoDoHistogramaToolStripMenuItem,
+            this.suavizaçãoToolStripMenuItem});
+            this.comDMAToolStripMenuItem2.Name = "comDMAToolStripMenuItem2";
+            this.comDMAToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.comDMAToolStripMenuItem2.Text = "Com DMA";
+            // 
+            // fatiamentoDeBitsToolStripMenuItem
+            // 
+            this.fatiamentoDeBitsToolStripMenuItem.Name = "fatiamentoDeBitsToolStripMenuItem";
+            this.fatiamentoDeBitsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.fatiamentoDeBitsToolStripMenuItem.Text = "Fatiamento de bits";
+            this.fatiamentoDeBitsToolStripMenuItem.Click += new System.EventHandler(this.fatiamentoDeBitsToolStripMenuItem_Click);
+            // 
+            // equalizaçãoDoHistogramaToolStripMenuItem
+            // 
+            this.equalizaçãoDoHistogramaToolStripMenuItem.Name = "equalizaçãoDoHistogramaToolStripMenuItem";
+            this.equalizaçãoDoHistogramaToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.equalizaçãoDoHistogramaToolStripMenuItem.Text = "Equalização do Histograma";
+            this.equalizaçãoDoHistogramaToolStripMenuItem.Click += new System.EventHandler(this.equalizaçãoDoHistogramaToolStripMenuItem_Click);
+            // 
+            // suavizaçãoToolStripMenuItem
+            // 
+            this.suavizaçãoToolStripMenuItem.Name = "suavizaçãoToolStripMenuItem";
+            this.suavizaçãoToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.suavizaçãoToolStripMenuItem.Text = "Suavização";
+            this.suavizaçãoToolStripMenuItem.Click += new System.EventHandler(this.suavizaçãoToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -284,6 +337,12 @@
         private System.Windows.Forms.ToolStripMenuItem separarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotacionarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretoBrancoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aula3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem semDMAToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem comDMAToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem fatiamentoDeBitsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem equalizaçãoDoHistogramaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suavizaçãoToolStripMenuItem;
     }
 }
 

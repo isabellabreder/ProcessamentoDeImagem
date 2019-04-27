@@ -112,5 +112,29 @@ namespace ProcessamentoImagens
             Filtros.pretoBrancoDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
         }
+
+        private void fatiamentoDeBitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap imgDest = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Filtros.fatiamento(imageBitmap, imgDest, openFileDialog.FileName, 7);
+            pictBoxImg2.Image = imgDest;
+        }
+
+        private void equalizaçãoDoHistogramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap imgDest = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Filtros.equalizacao(imageBitmap, imgDest);
+            pictBoxImg2.Image = imgDest;
+        }
+
+        private void suavizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap imgDest = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Filtros.suavizacao(imageBitmap, imgDest, 5);
+            pictBoxImg2.Image = imgDest;
+        }
     }
 }

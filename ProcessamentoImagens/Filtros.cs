@@ -450,5 +450,108 @@ namespace ProcessamentoImagens
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
+
+        public static void fatiamento(Bitmap imageBitmapSrc, Bitmap imageBitmapDst, String name, int k)
+        {
+            if(k >= 0)
+            {
+                int width = imageBitmapSrc.Width, heigh = imageBitmapSrc.Height, padding;
+                Bitmap aux = new Bitmap(width, heigh);
+
+                convert_to_grayDMA(imageBitmapSrc, aux);
+
+                BitmapData bitmapDataSrc = aux.LockBits(new Rectangle(0, 0, width, heigh), ImageLockMode.ReadWrite,
+                    PixelFormat.Format24bppRgb);
+                BitmapData bitmapDataDst = imageBitmapDst.LockBits(new Rectangle(0, 0, imageBitmapDst.Width, imageBitmapDst.Height), ImageLockMode.ReadWrite
+                    , PixelFormat.Format24bppRgb);
+
+                unsafe
+                {
+                    padding = bitmapDataDst.Stride - width * 3;
+
+                    byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
+                    byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
+
+                    int b, a;
+                    for (int i = 0; i < heigh; i++)
+                    {
+                        for (int j = 0; j < width; j++)
+                        {
+                            b = *(src++);
+                            b = *(src++);
+                            b = *(src++);
+
+                            for(int l = 0; l < 3; l++)
+                            {
+                                a = 0;
+                                a |= (b << k);
+                                *(dst++) = (byte)a;
+                            }
+                        }
+
+                        dst += padding;
+                        src += padding;
+                    }
+                }
+
+                aux.UnlockBits(bitmapDataSrc);
+                imageBitmapDst.UnlockBits(bitmapDataDst);
+
+                imageBitmapDst.Save(name.Replace(".jpg", "") + k + ".jpg");
+                fatiamento(imageBitmapSrc, imageBitmapDst, name, k - 1);
+            }
+        }
+
+        public static void equalizacao(Bitmap imageBitmapSrc, Bitmap imageBitmapDst)
+        {
+            int width = imageBitmapSrc.Width, heigh = imageBitmapSrc.Height, padding, i, j, p, fator = (width * heigh) / 255;
+            int[] vet = new int[255];
+
+            BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, heigh), ImageLockMode.ReadWrite
+                , PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataDst = imageBitmapDst.LockBits(new Rectangle(0, 0, width, heigh), ImageLockMode.ReadWrite
+                , PixelFormat.Format24bppRgb);
+
+            unsafe
+            {
+                byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
+                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
+                padding = bitmapDataDst.Stride - 3 * width;
+
+                for (i = 0; i < heigh; i++)
+                {
+                    for (j = 0; j < width; j++)
+                    {
+                        for (int k = 0; k < 3; k++)
+                        {
+                            p = *(src++);
+                            vet[p]++;
+                        }
+                    }
+                    src += padding;
+                }
+
+                src = (byte*)bitmapDataSrc.Scan0.ToPointer();
+
+                for(i = 0; i < heigh; i++)
+                {
+                    for(j = 0; j < width; j++)
+                    {
+                        
+                    }
+                }
+            }
+
+            imageBitmapSrc.UnlockBits(bitmapDataSrc);
+            imageBitmapDst.UnlockBits(bitmapDataDst);
+
+        }
+
+        public static void suavizacao(Bitmap imageBitmapSrc, Bitmap imageBitmapDst, int tam)
+        {
+            
+        }
+        
     }
 }

@@ -47,3 +47,13 @@ E:\TTc\ProcessamentoImagens\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.
 E:\TTc\ProcessamentoImagens\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.csproj.CoreCompileInputs.cache
 E:\TTc\ProcessamentoImagens\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.exe
 E:\TTc\ProcessamentoImagens\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.pdb
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\bin\Debug\ProcessamentoImagens.exe.config
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\bin\Debug\ProcessamentoImagens.exe
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\bin\Debug\ProcessamentoImagens.pdb
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.csprojAssemblyReference.cache
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.frmPrincipal.resources
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.Properties.Resources.resources
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.csproj.GenerateResource.cache
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.csproj.CoreCompileInputs.cache
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.exe
+C:\Users\ricci\Source\Repos\riccihenrique\ProcessamentoDeImagem\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.pdb
