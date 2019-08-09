@@ -49,17 +49,26 @@
             this.rotacionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretoBrancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aula2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictBoxImg1 = new System.Windows.Forms.PictureBox();
-            this.pictBoxImg2 = new System.Windows.Forms.PictureBox();
             this.aula3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.semDMAToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.comDMAToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.fatiamentoDeBitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equalizaçãoDoHistogramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suavizaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conversoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rGBToHSIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictBoxImg1 = new System.Windows.Forms.PictureBox();
+            this.pictBoxImg2 = new System.Windows.Forms.PictureBox();
+            this.pb1 = new System.Windows.Forms.PictureBox();
+            this.pb2 = new System.Windows.Forms.PictureBox();
+            this.pb3 = new System.Windows.Forms.PictureBox();
+            this.lbValues = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAbrirImagem
@@ -88,7 +97,8 @@
             this.exemplosToolStripMenuItem,
             this.aula1ToolStripMenuItem,
             this.aula2ToolStripMenuItem,
-            this.aula3ToolStripMenuItem});
+            this.aula3ToolStripMenuItem,
+            this.conversoresToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1220, 24);
@@ -101,7 +111,7 @@
             this.semDMAToolStripMenuItem,
             this.comDMAToolStripMenuItem});
             this.exemplosToolStripMenuItem.Name = "exemplosToolStripMenuItem";
-            this.exemplosToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.exemplosToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.exemplosToolStripMenuItem.Text = "Exemplos";
             // 
             // semDMAToolStripMenuItem
@@ -226,24 +236,6 @@
             this.aula2ToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aula2ToolStripMenuItem.Text = "Aula 2";
             // 
-            // pictBoxImg1
-            // 
-            this.pictBoxImg1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictBoxImg1.Location = new System.Drawing.Point(5, 33);
-            this.pictBoxImg1.Name = "pictBoxImg1";
-            this.pictBoxImg1.Size = new System.Drawing.Size(600, 534);
-            this.pictBoxImg1.TabIndex = 102;
-            this.pictBoxImg1.TabStop = false;
-            // 
-            // pictBoxImg2
-            // 
-            this.pictBoxImg2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictBoxImg2.Location = new System.Drawing.Point(611, 33);
-            this.pictBoxImg2.Name = "pictBoxImg2";
-            this.pictBoxImg2.Size = new System.Drawing.Size(600, 534);
-            this.pictBoxImg2.TabIndex = 105;
-            this.pictBoxImg2.TabStop = false;
-            // 
             // aula3ToolStripMenuItem
             // 
             this.aula3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -256,7 +248,7 @@
             // semDMAToolStripMenuItem2
             // 
             this.semDMAToolStripMenuItem2.Name = "semDMAToolStripMenuItem2";
-            this.semDMAToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.semDMAToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.semDMAToolStripMenuItem2.Text = "Sem DMA";
             // 
             // comDMAToolStripMenuItem2
@@ -266,7 +258,7 @@
             this.equalizaçãoDoHistogramaToolStripMenuItem,
             this.suavizaçãoToolStripMenuItem});
             this.comDMAToolStripMenuItem2.Name = "comDMAToolStripMenuItem2";
-            this.comDMAToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.comDMAToolStripMenuItem2.Size = new System.Drawing.Size(130, 22);
             this.comDMAToolStripMenuItem2.Text = "Com DMA";
             // 
             // fatiamentoDeBitsToolStripMenuItem
@@ -290,11 +282,89 @@
             this.suavizaçãoToolStripMenuItem.Text = "Suavização";
             this.suavizaçãoToolStripMenuItem.Click += new System.EventHandler(this.suavizaçãoToolStripMenuItem_Click);
             // 
+            // conversoresToolStripMenuItem
+            // 
+            this.conversoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rGBToHSIToolStripMenuItem});
+            this.conversoresToolStripMenuItem.Name = "conversoresToolStripMenuItem";
+            this.conversoresToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.conversoresToolStripMenuItem.Text = "Conversores";
+            // 
+            // rGBToHSIToolStripMenuItem
+            // 
+            this.rGBToHSIToolStripMenuItem.Name = "rGBToHSIToolStripMenuItem";
+            this.rGBToHSIToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.rGBToHSIToolStripMenuItem.Text = "RGB to HSI";
+            this.rGBToHSIToolStripMenuItem.Click += new System.EventHandler(this.RGBToHSIToolStripMenuItem_Click);
+            // 
+            // pictBoxImg1
+            // 
+            this.pictBoxImg1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictBoxImg1.Location = new System.Drawing.Point(5, 33);
+            this.pictBoxImg1.Name = "pictBoxImg1";
+            this.pictBoxImg1.Size = new System.Drawing.Size(600, 510);
+            this.pictBoxImg1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictBoxImg1.TabIndex = 102;
+            this.pictBoxImg1.TabStop = false;
+            this.pictBoxImg1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictBoxImg1_MouseMove);
+            // 
+            // pictBoxImg2
+            // 
+            this.pictBoxImg2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictBoxImg2.Location = new System.Drawing.Point(822, 33);
+            this.pictBoxImg2.Name = "pictBoxImg2";
+            this.pictBoxImg2.Size = new System.Drawing.Size(386, 338);
+            this.pictBoxImg2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictBoxImg2.TabIndex = 105;
+            this.pictBoxImg2.TabStop = false;
+            // 
+            // pb1
+            // 
+            this.pb1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pb1.Location = new System.Drawing.Point(611, 33);
+            this.pb1.Name = "pb1";
+            this.pb1.Size = new System.Drawing.Size(205, 166);
+            this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb1.TabIndex = 113;
+            this.pb1.TabStop = false;
+            // 
+            // pb2
+            // 
+            this.pb2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pb2.Location = new System.Drawing.Point(611, 205);
+            this.pb2.Name = "pb2";
+            this.pb2.Size = new System.Drawing.Size(205, 166);
+            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb2.TabIndex = 114;
+            this.pb2.TabStop = false;
+            // 
+            // pb3
+            // 
+            this.pb3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pb3.Location = new System.Drawing.Point(611, 377);
+            this.pb3.Name = "pb3";
+            this.pb3.Size = new System.Drawing.Size(205, 166);
+            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb3.TabIndex = 115;
+            this.pb3.TabStop = false;
+            // 
+            // lbValues
+            // 
+            this.lbValues.AutoSize = true;
+            this.lbValues.Location = new System.Drawing.Point(73, 118);
+            this.lbValues.Name = "lbValues";
+            this.lbValues.Size = new System.Drawing.Size(0, 13);
+            this.lbValues.TabIndex = 116;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 608);
+            this.Controls.Add(this.lbValues);
+            this.Controls.Add(this.pb3);
+            this.Controls.Add(this.pb2);
+            this.Controls.Add(this.pb1);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnAbrirImagem);
             this.Controls.Add(this.pictBoxImg2);
@@ -308,6 +378,9 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxImg2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,6 +416,12 @@
         private System.Windows.Forms.ToolStripMenuItem fatiamentoDeBitsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equalizaçãoDoHistogramaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suavizaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conversoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rGBToHSIToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pb1;
+        private System.Windows.Forms.PictureBox pb2;
+        private System.Windows.Forms.PictureBox pb3;
+        private System.Windows.Forms.Label lbValues;
     }
 }
 

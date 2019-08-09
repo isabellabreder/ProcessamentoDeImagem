@@ -136,5 +136,37 @@ namespace ProcessamentoImagens
             Filtros.suavizacao(imageBitmap, imgDest, 5);
             pictBoxImg2.Image = imgDest;
         }
+
+        private void RGBToHSIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap imgDest = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Bitmap imgh = new Bitmap(image);
+            Bitmap imgs = new Bitmap(image);
+            Bitmap imgi = new Bitmap(image);
+            Filtros.RBGtoHSI(imageBitmap, imgDest, imgh, imgs, imgi);
+            pictBoxImg2.Image = imgDest;
+            pb1.Image = imgh;
+            pb2.Image = imgs;
+            pb3.Image = imgi;
+        }
+
+        private void PictBoxImg1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (image != null && e.X < image.Width && e.Y < image.Height)
+            {               
+
+                imageBitmap = (Bitmap)image;
+                Color color = imageBitmap.GetPixel(e.X, e.Y);
+                Color hsi = Filtros.HSI(color);
+                lbValues.Location = new Point(e.X, e.Y);
+                lbValues.Text = "R: " + color.R + " G: " + color.G + " B: " + color.B + 
+                    "\nH: " + hsi.R + " S: " + hsi.G + " I: " + hsi.B;                
+            }
+            else
+                lbValues.Text = "";
+            
+
+        }
     }
 }

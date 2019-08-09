@@ -149,6 +149,22 @@ namespace ProcessamentoImagens
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
 
+        internal static void RBGtoHSI(Bitmap imageSrc, Bitmap imgDest, Bitmap imgH, Bitmap imgS, Bitmap imgI)
+        {
+            double h, s, i;
+            double r, g, b;
+            for(int y = 0; y < imageSrc.Height; y++)
+                for(int x = 0; x < imageSrc.Width; x++)
+                {
+                    Color hsi = HSI(imageSrc.GetPixel(x, y));
+
+                    imgDest.SetPixel(x, y, hsi);
+                    imgH.SetPixel(x, y, Color.FromArgb(hsi.R, 0, 0));
+                    imgS.SetPixel(x, y, Color.FromArgb(0, hsi.G, 0));
+                    imgI.SetPixel(x, y, Color.FromArgb(0, 0, hsi.B));
+                }            
+        }
+
         public static void pretoBrancoDMA(Bitmap imagebitmapSrc, Bitmap imagebitmapDest)
         {
             convert_to_grayDMA(imagebitmapSrc, imagebitmapDest);
@@ -553,5 +569,33 @@ namespace ProcessamentoImagens
             
         }
         
+
+        public static Color HSI(Color RGB)
+        {
+            double r, g, b;
+            double h, s, i;
+
+            if (RGB.R + RGB.G + RGB.B > 0)
+            {
+                r = ((double)RGB.R) / (RGB.R + RGB.G + RGB.B);
+                g = ((double)RGB.G) / (RGB.R + RGB.G + RGB.B);
+                b = ((double)RGB.B) / (RGB.R + RGB.G + RGB.B);
+            }
+            else
+                r = g = b = 0;
+
+            h = Math.Sqrt(Math.Pow(r - g, 2) + (r - b) * (g - b));
+            h = (0.5 * ((r - g) + (r - b))) / (h == 0 ? 1 : h);
+            h = Math.Acos(h);
+
+            if (b > g)
+                h = 2 * Math.PI - h;
+
+            s = 1 - 3 * Math.Min(r, Math.Min(g, b));
+
+            i = ((double)RGB.R + RGB.G + RGB.B) / (3 * 255);
+
+            return Color.FromArgb((byte)(h * 180 / Math.PI), (byte)(s * 100), (byte)(i * 255));
+        }
     }
 }
