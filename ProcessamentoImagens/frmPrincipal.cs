@@ -8,7 +8,7 @@ namespace ProcessamentoImagens
     {
         private Image image;
         private Bitmap imageBitmap;
-
+        private Color[,] mat;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -23,6 +23,12 @@ namespace ProcessamentoImagens
                 image = Image.FromFile(openFileDialog.FileName);
                 pictBoxImg1.Image = image;
                 pictBoxImg1.SizeMode = PictureBoxSizeMode.Normal;
+
+                mat = new Color[image.Height, image.Width];
+
+                for (int i = 0; i < image.Height; i++)
+                    for (int j = 0; j < image.Width; j++)
+                        mat[i, j] = ((Bitmap)image).GetPixel(j, i);
             }
         }
 
@@ -30,6 +36,10 @@ namespace ProcessamentoImagens
         {
             pictBoxImg1.Image = null;
             pictBoxImg2.Image = null;
+            pb1.Image = null;
+            pb2.Image = null;
+            pb3.Image = null;
+            
         }
 
         private void luminânciaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -140,11 +150,13 @@ namespace ProcessamentoImagens
         private void RGBToHSIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bitmap imgDest = new Bitmap(image);
+            Bitmap cinza = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Bitmap imgh = new Bitmap(image);
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
-            Filtros.RBGtoHSI(imageBitmap, imgDest, imgh, imgs, imgi);
+
+            Filtros.RBGtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, 0, 0);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;
@@ -154,19 +166,68 @@ namespace ProcessamentoImagens
         private void PictBoxImg1_MouseMove(object sender, MouseEventArgs e)
         {
             if (image != null && e.X < image.Width && e.Y < image.Height)
-            {               
-
+            {
                 imageBitmap = (Bitmap)image;
-                Color color = imageBitmap.GetPixel(e.X, e.Y);
-                Color hsi = Filtros.HSI(color);
+                Color color = mat[e.Y, e.X];
+                ColorHsi hsi = Filtros.HSI(color, 0, 0);
+                Color cmy = Filtros.CMY(color);
                 lbValues.Location = new Point(e.X, e.Y);
-                lbValues.Text = "R: " + color.R + " G: " + color.G + " B: " + color.B + 
-                    "\nH: " + hsi.R + " S: " + hsi.G + " I: " + hsi.B;                
+                lbValues.Text = "X: " + e.X + " Y: " + e.Y + 
+                    "\nR: " + color.R + " G: " + color.G + " B: " + color.B + 
+                    "\nH: " + hsi.H + " S: " + hsi.S + " I: " + hsi.I + 
+                    "\nC: " + cmy.R + " M: " + cmy.G + " Y: " +  cmy.B;                
             }
             else
                 lbValues.Text = "";
-            
+        }
 
+        private void RGBToCMYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap imgDest = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Bitmap imgh = new Bitmap(image);
+            Bitmap imgs = new Bitmap(image);
+            Bitmap imgi = new Bitmap(image);
+            Filtros.RBGtoCMY(imageBitmap, imgDest, imgh, imgs, imgi);
+            pictBoxImg2.Image = imgDest;
+            pb1.Image = imgh;
+            pb2.Image = imgs;
+            pb3.Image = imgi;
+        }
+
+        private void TrkbHue_ValueChanged(object sender, EventArgs e)
+        {
+            lbHue.Text = trkbHue.Value.ToString();
+            Bitmap imgDest = new Bitmap(image);
+            Bitmap cinza = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Bitmap imgh = new Bitmap(image);
+            Bitmap imgs = new Bitmap(image);
+            Bitmap imgi = new Bitmap(image);
+
+            Filtros.RBGtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, trkbHue.Value, trkbBrilho.Value);
+            pictBoxImg2.Image = imgDest;
+            pb1.Image = imgh;
+            pb2.Image = imgs;
+            pb3.Image = imgi;
+        }
+
+        private void TrackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            lbBrilho.Text = trkbBrilho.Value.ToString();
+            lbHue.Text = trkbHue.Value.ToString();
+            Bitmap imgDest = new Bitmap(image);
+            Bitmap cinza = new Bitmap(image);
+            imageBitmap = (Bitmap)image;
+            Bitmap imgh = new Bitmap(image);
+            Bitmap imgs = new Bitmap(image);
+            Bitmap imgi = new Bitmap(image);
+
+            Filtros.RBGtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, trkbHue.Value, trkbBrilho.Value);
+            pictBoxImg2.Image = imgDest;
+            pb1.Image = imgh;
+            pb2.Image = imgs;
+            pb3.Image = imgi;
         }
     }
 }
