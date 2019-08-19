@@ -151,7 +151,7 @@ namespace ProcessamentoImagens
 
         public static void RBGtoHSI(Bitmap imageSrc, Bitmap imgDest, Bitmap cinza, Bitmap imgH, Bitmap imgS, Bitmap imgI, int hue, int intensidade)
         {
-            ColorHsi hsi, hsi2;
+            ColorHsi hsi;
             int width = imageSrc.Width, height = imageSrc.Height, padding;
 
             convert_to_gray(imageSrc, cinza);
@@ -185,7 +185,8 @@ namespace ProcessamentoImagens
                 byte* bs = (byte*)bitmapDataSat.Scan0.ToPointer();
                 byte* bi = (byte*)bitmapDataInt.Scan0.ToPointer();
                 Color cor;
-                int r, g, b, h, s, i;
+                int r, g, b;
+
                 for (int y = 0; y < height; y++)
                 {
                     for (int x = 0; x < width; x++)
@@ -202,26 +203,21 @@ namespace ProcessamentoImagens
                         *(dst++) = (byte)cor.G;
                         *(dst++) = (byte)cor.R;
 
-                        b = *(cin++);
-                        g = *(cin++);
-                        r = *(cin++);
+                        hsi.H = hsi.H > 255 ? 255 : hsi.H;
+                        hsi.S = hsi.S > 255 ? 255 : hsi.S;
+                        hsi.I = hsi.I > 255 ? 255 : hsi.I;
+                        
+                        *(bh++) = (byte)hsi.H;
+                        *(bh++) = (byte)hsi.H;
+                        *(bh++) = (byte)hsi.H;
 
-                        cor = Color.FromArgb(r, g, b);
-                        hsi = HSI(cor, hue, intensidade);
-                        cor = RGB(hsi);
+                        *(bs++) = (byte)hsi.S;
+                        *(bs++) = (byte)hsi.S;
+                        *(bs++) = (byte)hsi.S;
 
-
-                        *(bh++) = (byte)cor.R;
-                        *(bh++) = (byte)cor.R;
-                        *(bh++) = (byte)cor.R;
-
-                        *(bs++) = (byte)cor.G;
-                        *(bs++) = (byte)cor.G;
-                        *(bs++) = (byte)cor.G;
-
-                        *(bi++) = (byte)cor.B;
-                        *(bi++) = (byte)cor.B;
-                        *(bi++) = (byte)cor.B;
+                        *(bi++) = (byte)hsi.I;
+                        *(bi++) = (byte)hsi.I;
+                        *(bi++) = (byte)hsi.I;
                     }
                     src += padding;
                     dst += padding;
@@ -238,24 +234,6 @@ namespace ProcessamentoImagens
             imgH.UnlockBits(bitmapDataHue);
             imgS.UnlockBits(bitmapDataSat);
             imgI.UnlockBits(bitmapDataInt);
-
-
-            
-           /* 
-            for (int y = 0; y < imageSrc.Height; y++)
-                for(int x = 0; x < imageSrc.Width; x++)
-                {
-                    hsi = HSI(imageSrc.GetPixel(x, y), hue, intensidade);
-
-                    hsi2 = HSI(cinza.GetPixel(x, y), hue, intensidade);
-                    Color c = RGB(hsi2);
-
-                    imgH.SetPixel(x, y, Color.FromArgb(c.R, c.R, c.R));
-                    imgS.SetPixel(x, y, Color.FromArgb(c.G, c.G, c.G));
-                    imgI.SetPixel(x, y, Color.FromArgb(c.B, c.B, c.B));
-
-                    imgDest.SetPixel(x, y, RGB(hsi));
-                }            */
         }
 
         public static void RBGtoCMY(Bitmap imageSrc, Bitmap imgDest, Bitmap imgH, Bitmap imgS, Bitmap imgI)
@@ -733,7 +711,7 @@ namespace ProcessamentoImagens
 
             s = 1.0 - 3.0 * Math.Min(r, Math.Min(g, b));
 
-            i = ((double)RGB.R + RGB.G + RGB.B) / (3 * 255);
+            i = (RGB.R + RGB.G + RGB.B) / (3.0 * 255.0);
 
             i += i * intensidade / 100;
 
@@ -748,14 +726,14 @@ namespace ProcessamentoImagens
         public static Color RGB(ColorHsi HSI)
         {
             double h, s, i, x, y, z;
-            h = ((double)HSI.H) * Math.PI / 180;
-            s = ((double) HSI.S) / 100;
-            i = ((double)HSI.I) / 255;
+            h = HSI.H * Math.PI / 180.0;
+            s = HSI.S / 100.0;
+            i = HSI.I / 255.0;
 
             x = i * (1.0 - s);            
             
             Color rgb;
-            if (h < 2 * Math.PI / 3)
+            if (h < 2.0 * Math.PI / 3.0)
             {
                 y = i * (1.0 + (s * Math.Cos(h) / Math.Cos(Math.PI / 3.0 - h)));
                 z = 3.0 * i - (x + y);
@@ -766,10 +744,10 @@ namespace ProcessamentoImagens
 
                 rgb = Color.FromArgb((int)y, (int)z, (int)x);
             }
-            else if(h < 4 * Math.PI / 3)
+            else if(h < 4.0 * Math.PI / 3.0)
             {
-                h = h - 2 * Math.PI / 3;
-                y = i * (1 + (s * Math.Cos(h) / Math.Cos(Math.PI / 3.0 - h)));
+                h = h - 2.0 * Math.PI / 3.0;
+                y = i * (1.0 + (s * Math.Cos(h) / Math.Cos(Math.PI / 3.0 - h)));
                 z = 3.0 * i - (x + y);
 
                 x *= 255;  x = x > 255 ? 255 : x; x = x < 0 ? 0 : x;

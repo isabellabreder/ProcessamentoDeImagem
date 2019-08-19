@@ -12,6 +12,8 @@ namespace ProcessamentoImagens
         public frmPrincipal()
         {
             InitializeComponent();
+            lbBrilho.Text = "0";
+            lbHue.Text = "0";
         }
 
         private void btnAbrirImagem_Click(object sender, EventArgs e)
