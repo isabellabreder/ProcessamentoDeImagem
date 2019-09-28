@@ -699,15 +699,15 @@ namespace ProcessamentoImagens
                 r = g = b = 0;
             
             h = Math.Sqrt(Math.Pow(r - g, 2) + (r - b) * (g - b));
-            h = (0.5 * ((r - g) + (r - b))) / (h == 0 ? 1 : h);
+            if(h != 0)
+                h = (0.5 * ((r - g) + (r - b))) / h;
             h = Math.Acos(h);
 
             if (b > g)
-                h = 2 * Math.PI - h;
+                h = 360 - h;
 
-            h += (hue * 0.27777);
-
-            h = h > 360 ? h - 360 : h;
+            h += (hue * 0.1);
+            h = h > 360 ? 360 : h;
 
             s = 1.0 - 3.0 * Math.Min(r, Math.Min(g, b));
 

@@ -1,10 +1,2 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs/ProcessamentoDeImagem/v16/.suo
-/.vs/ProcessamentoImagens/v16/Server/sqlite3/db.lock
-/.vs/ProcessamentoImagens/v16/Server/sqlite3/storage.ide
-/.vs/ProcessamentoImagens/v16/Server/sqlite3/storage.ide-shm
-/.vs/ProcessamentoImagens/v16/Server/sqlite3/storage.ide-wal
-/.vs/ProcessamentoImagens/v16/.suo
+bin
+.vs

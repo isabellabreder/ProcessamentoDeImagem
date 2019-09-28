@@ -120,7 +120,7 @@
             this.semDMAToolStripMenuItem,
             this.comDMAToolStripMenuItem});
             this.exemplosToolStripMenuItem.Name = "exemplosToolStripMenuItem";
-            this.exemplosToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.exemplosToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.exemplosToolStripMenuItem.Text = "Exemplos";
             // 
             // semDMAToolStripMenuItem
@@ -316,7 +316,7 @@
             // 
             // pictBoxImg1
             // 
-            this.pictBoxImg1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictBoxImg1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pictBoxImg1.Location = new System.Drawing.Point(5, 33);
             this.pictBoxImg1.Name = "pictBoxImg1";
             this.pictBoxImg1.Size = new System.Drawing.Size(600, 510);
@@ -327,7 +327,7 @@
             // 
             // pictBoxImg2
             // 
-            this.pictBoxImg2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictBoxImg2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pictBoxImg2.Location = new System.Drawing.Point(822, 33);
             this.pictBoxImg2.Name = "pictBoxImg2";
             this.pictBoxImg2.Size = new System.Drawing.Size(386, 338);
@@ -337,7 +337,7 @@
             // 
             // pb1
             // 
-            this.pb1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pb1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pb1.Location = new System.Drawing.Point(611, 33);
             this.pb1.Name = "pb1";
             this.pb1.Size = new System.Drawing.Size(205, 166);
@@ -347,7 +347,7 @@
             // 
             // pb2
             // 
-            this.pb2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pb2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pb2.Location = new System.Drawing.Point(611, 205);
             this.pb2.Name = "pb2";
             this.pb2.Size = new System.Drawing.Size(205, 166);
@@ -357,7 +357,7 @@
             // 
             // pb3
             // 
-            this.pb3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pb3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pb3.Location = new System.Drawing.Point(611, 377);
             this.pb3.Name = "pb3";
             this.pb3.Size = new System.Drawing.Size(205, 166);
@@ -376,7 +376,7 @@
             // trkbHue
             // 
             this.trkbHue.Location = new System.Drawing.Point(889, 393);
-            this.trkbHue.Maximum = 100;
+            this.trkbHue.Minimum = -10;
             this.trkbHue.Name = "trkbHue";
             this.trkbHue.Size = new System.Drawing.Size(217, 45);
             this.trkbHue.TabIndex = 117;
@@ -433,7 +433,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1220, 608);
             this.Controls.Add(this.lbBrilho);
             this.Controls.Add(this.lbHue);
