@@ -107,3 +107,13 @@ E:\ProcessamentoDeImagem\ProcessamentoDeImagem-comitAqui\ProcessamentoImagens\ob
 E:\ProcessamentoDeImagem\ProcessamentoDeImagem-comitAqui\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.csproj.CoreCompileInputs.cache
 E:\ProcessamentoDeImagem\ProcessamentoDeImagem-comitAqui\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.exe
 E:\ProcessamentoDeImagem\ProcessamentoDeImagem-comitAqui\ProcessamentoImagens\obj\Debug\ProcessamentoImagens.pdb
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\bin\Debug\ProcessamentoImagens.exe.config
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\bin\Debug\ProcessamentoImagens.exe
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\bin\Debug\ProcessamentoImagens.pdb
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.csprojAssemblyReference.cache
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.frmPrincipal.resources
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.Properties.Resources.resources
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.csproj.GenerateResource.cache
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.csproj.CoreCompileInputs.cache
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.exe
+D:\Documentos\GitHub\ProcessamentoDeImagem\Processamento de Imagens\obj\Debug\ProcessamentoImagens.pdb

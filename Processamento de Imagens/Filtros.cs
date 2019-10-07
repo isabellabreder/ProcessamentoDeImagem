@@ -148,7 +148,6 @@ namespace ProcessamentoImagens
             //unlock imagem destino
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
-
         public static void RBGtoHSI(Bitmap imageSrc, Bitmap imgDest, Bitmap cinza, Bitmap imgH, Bitmap imgS, Bitmap imgI, int hue, int intensidade)
         {
             ColorHsi hsi;
@@ -235,7 +234,6 @@ namespace ProcessamentoImagens
             imgS.UnlockBits(bitmapDataSat);
             imgI.UnlockBits(bitmapDataInt);
         }
-
         public static void RBGtoCMY(Bitmap imageSrc, Bitmap imgDest, Bitmap imgH, Bitmap imgS, Bitmap imgI)
         {
             int width = imageSrc.Width, height = imageSrc.Height, padding;
@@ -267,18 +265,12 @@ namespace ProcessamentoImagens
                         *(dst++) = (byte)cor.B;
                         *(dst++) = (byte)cor.G;
                         *(dst++) = (byte)cor.R;
-
-                        //imgH.SetPixel(x, y, Color.FromArgb(cor.R, 0, 0));
-                       // imgS.SetPixel(x, y, Color.FromArgb(0, cor.G, 0));
-                       // imgI.SetPixel(x, y, Color.FromArgb(0, 0, cor.B));
                     }
                     src += padding;
                     dst += padding;
                 }
             }
-            //unlock imagem origem
             imageSrc.UnlockBits(bitmapDataSrc);
-            //unlock imagem destino
             imgDest.UnlockBits(bitmapDataDst);
         }
 
@@ -317,7 +309,6 @@ namespace ProcessamentoImagens
                             *(dst++) = (byte)px;
                         }
                     }
-
                     dst += padding;
                 }
             }
@@ -370,7 +361,6 @@ namespace ProcessamentoImagens
             //unlock imagem destino
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
-
         public static void inverteRBDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
         {
             int width = imageBitmapSrc.Width, heigth = imageBitmapSrc.Height, padding, i, j ;
@@ -410,7 +400,6 @@ namespace ProcessamentoImagens
                 imageBitmapDest.UnlockBits(bitmapDataDst);
             }            
         }
-
         public static void separaCanaisDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest, int canal)
         {
             int width = imageBitmapSrc.Width, height = imageBitmapSrc.Height, padding, i, j;
@@ -467,7 +456,6 @@ namespace ProcessamentoImagens
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
-
         public static void rotacionaDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
         {
             int width = imageBitmapSrc.Width, height = imageBitmapSrc.Height, i, j, paddingSrc;
@@ -505,7 +493,6 @@ namespace ProcessamentoImagens
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
-
         public static void horizontalDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
         {
             int width = imageBitmapSrc.Width, height = imageBitmapSrc.Height, i, j, padding;
@@ -544,7 +531,6 @@ namespace ProcessamentoImagens
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
-
         public static void verticallDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
         {
             int width = imageBitmapSrc.Width, height = imageBitmapSrc.Height, i, j, padding;
@@ -583,7 +569,6 @@ namespace ProcessamentoImagens
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
-
         public static void fatiamento(Bitmap imageBitmapSrc, Bitmap imageBitmapDst, String name, int k)
         {
             if(k >= 0)
@@ -634,7 +619,6 @@ namespace ProcessamentoImagens
                 fatiamento(imageBitmapSrc, imageBitmapDst, name, k - 1);
             }
         }
-
         public static void equalizacao(Bitmap imageBitmapSrc, Bitmap imageBitmapDst)
         {
             int width = imageBitmapSrc.Width, heigh = imageBitmapSrc.Height, padding, i, j, p, fator = (width * heigh) / 255;
@@ -678,16 +662,17 @@ namespace ProcessamentoImagens
             imageBitmapDst.UnlockBits(bitmapDataDst);
 
         }
-
         public static void suavizacao(Bitmap imageBitmapSrc, Bitmap imageBitmapDst, int tam)
         {
             
         }
-        
         public static ColorHsi HSI(Color RGB, int hue, int intensidade)
         {
             double r, g, b;
             double h, s, i;
+
+            if (RGB.R + RGB.G + RGB.B == 255 && RGB.R == 197)
+                r = 1;
 
             if (RGB.R + RGB.G + RGB.B > 0)
             {
@@ -714,15 +699,12 @@ namespace ProcessamentoImagens
             i = (RGB.R + RGB.G + RGB.B) / (3.0 * 255.0);
 
             i += i * intensidade / 100;
-
             return new ColorHsi((int)(h * 180.0 / Math.PI), (int)(s * 100), (int)(i * 255));
         }
-
         public static Color CMY(Color RGB)
         {
             return Color.FromArgb(255 - RGB.R, 255 - RGB.G, 255 - RGB.B);
         }
-
         public static Color RGB(ColorHsi HSI)
         {
             double h, s, i, x, y, z;
