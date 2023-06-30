@@ -1,0 +1,121 @@
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojResolveAssemblyReference.cache
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.Cache
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+C:/Chico C/Chico 2015 - Semestre 1/Aulas/Aulas TTC/Aula 1/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojResolveAssemblyReference.cache
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.Cache
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+C:/Users/Aluno/Downloads/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+J:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+F:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojResolveAssemblyReference.cache
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+E:/TTc/ProcessamentoImagens/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+C:/Users/ricci/Source/Repos/riccihenrique/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+C:/Users/Aluno/Source/Repos/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+D:/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+D:/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+D:/ProcessamentoDeImagem/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+D:/ProcessamentoDeImagem/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+F:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+E:/ProcessamentoDeImagem-comitAqui/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe.config
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.exe
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/bin/Debug/ProcessamentoImagens.pdb
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.exe
+E:/ProcessamentoDeImagem/ProcessamentoDeImagem-comitAqui/ProcessamentoImagens/obj/Debug/ProcessamentoImagens.pdb
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/bin/Debug/ProcessamentoImagens.exe.config
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/bin/Debug/ProcessamentoImagens.exe
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/bin/Debug/ProcessamentoImagens.pdb
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.csprojAssemblyReference.cache
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.frmPrincipal.resources
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.Properties.Resources.resources
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.csproj.GenerateResource.cache
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.csproj.CoreCompileInputs.cache
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.exe
+D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.pdb
+/home/isabellabreder/unicamp/MC970/ProcessamentoDeImagem/project/obj/Debug/ProcessamentoImagens.exe
+/home/isabellabreder/unicamp/MC970/ProcessamentoDeImagem/project/obj/Debug/ProcessamentoImagens.pdb
