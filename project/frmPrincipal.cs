@@ -187,14 +187,14 @@ namespace ProcessamentoImagens
         {
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            // Bitmap imgh = new Bitmap(image);
-            // Bitmap imgs = new Bitmap(image);
-            // Bitmap imgi = new Bitmap(image);
-            Filtros.RGBtoCMY(imageBitmap, imgDest);
+            Bitmap imgh = new Bitmap(image);
+            Bitmap imgs = new Bitmap(image);
+            Bitmap imgi = new Bitmap(image);
+            Filtros.RGBtoCMY(imageBitmap, imgDest, imgh, imgs, imgi);
             pictBoxImg2.Image = imgDest;
-            // pb1.Image = imgh;
-            // pb2.Image = imgs;
-            // pb3.Image = imgi;
+            pb1.Image = imgh;
+            pb2.Image = imgs;
+            pb3.Image = imgi;
         }
 
         private void TrkbHue_ValueChanged(object sender, EventArgs e)

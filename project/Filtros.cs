@@ -250,7 +250,7 @@ namespace ProcessamentoImagens
 
         }
 
-        public static void RGBtoCMY(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
+        public static void RGBtoCMY(Bitmap imageBitmapSrc, Bitmap imageBitmapDest, Bitmap imgH, Bitmap imgS, Bitmap imgI)
         {
             int width = imageBitmapSrc.Width;
             int height = imageBitmapSrc.Height;
@@ -277,9 +277,17 @@ namespace ProcessamentoImagens
                         byte* srcPixel = srcLine + (x * pixelSize);
                         byte* dstPixel = dstLine + (x * pixelSize);
 
-                        dstPixel[0] = (byte)(255 - srcPixel[0]);
-                        dstPixel[1] = (byte)(255 - srcPixel[1]);
-                        dstPixel[2] = (byte)(255 - srcPixel[2]);
+
+                        int b = srcPixel[0];
+                        int g = srcPixel[1];
+                        int r = srcPixel[2];
+
+                        Color cor = CMY(Color.FromArgb(r, g, b));
+
+                        dstPixel[0] = (byte)cor.B;
+                        dstPixel[1] = (byte)cor.G;
+                        dstPixel[2] = (byte)cor.R;
+                        
                     }
                 });
 
