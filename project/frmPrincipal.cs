@@ -94,11 +94,11 @@ namespace ProcessamentoImagens
 
         private void separarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap imgDestR = new Bitmap(image), imgDestG = new Bitmap(image), imgDestB = new Bitmap(image);
+            Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            // Random r = new Random();
-            Filtros.separaCanaisDMA(imageBitmap, imgDestR, imgDestG, imgDestB);
-            pictBoxImg2.Image = imgDestR;
+            Random r = new Random();
+            Filtros.separaCanaisDMA(imageBitmap, imgDest, r.Next(150) % 3);
+            pictBoxImg2.Image = imgDest;
         }
 
         private void espelhamentoVerticalToolStripMenuItem_Click(object sender, EventArgs e)

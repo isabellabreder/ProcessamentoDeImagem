@@ -426,7 +426,7 @@ namespace ProcessamentoImagens
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
 
-        public static void separaCanaisDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDestR, Bitmap imageBitmapDestG, Bitmap imageBitmapDestB)
+        public static void separaCanaisDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest, int canal)
         {
             int width = imageBitmapSrc.Width;
             int height = imageBitmapSrc.Height;
@@ -435,57 +435,50 @@ namespace ProcessamentoImagens
             BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-            BitmapData bitmapDataDstR = imageBitmapDestR.LockBits(new Rectangle(0, 0, width, height),
+            BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            BitmapData bitmapDataDstG = imageBitmapDestG.LockBits(new Rectangle(0, 0, width, height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            BitmapData bitmapDataDstB = imageBitmapDestB.LockBits(new Rectangle(0, 0, width, height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
 
             unsafe
             {
                 byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
-                byte* dstR = (byte*)bitmapDataDstR.Scan0.ToPointer();
-                byte* dstG = (byte*)bitmapDataDstG.Scan0.ToPointer();
-                byte* dstB = (byte*)bitmapDataDstB.Scan0.ToPointer();
+                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
+
 
                 Parallel.For(0, height, y =>
                 {
                     byte* srcLine = src + (y * bitmapDataSrc.Stride);
-                    byte* dstLineR = dstR + (y * bitmapDataDstR.Stride);
-                    byte* dstLineG = dstG + (y * bitmapDataDstG.Stride);
-                    byte* dstLineB = dstB + (y * bitmapDataDstB.Stride);
+                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
+
 
                     for (int x = 0; x < width; x++)
                     {
                         byte* srcPixel = srcLine + (x * pixelSize);
-                        byte* dstPixelR = dstLineR + (x * pixelSize);
-                        byte* dstPixelG = dstLineG + (x * pixelSize);
-                        byte* dstPixelB = dstLineB + (x * pixelSize);
+                        byte* dstPixel = dstLine + (x * pixelSize);
 
-                        dstPixelR[0] = srcPixel[0];
-                        dstPixelR[1] = 0;
-                        dstPixelR[2] = 0;
-
-                        dstPixelG[0] = 0;
-                        dstPixelG[1] = srcPixel[1];
-                        dstPixelG[2] = 0;
-
-                        dstPixelB[0] = 0;
-                        dstPixelB[1] = 0;
-                        dstPixelB[2] = srcPixel[2];
+                        if(canal == 0)
+                        {
+                            dstPixel[0] = 0;
+                            dstPixel[1] = 0;
+                            dstPixel[2] = srcPixel[2];
+                        }
+                        else if(canal == 1)
+                        {
+                            dstPixel[0] = 0;
+                            dstPixel[1] = srcPixel[1];
+                            dstPixel[2] = 0;
+                        }
+                        else
+                        {
+                            dstPixel[0] = srcPixel[0];
+                            dstPixel[1] = 0;
+                            dstPixel[2] = 0;
+                        }
                     }
                 });
             }
 
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
-            imageBitmapDestR.UnlockBits(bitmapDataDstR);
-            imageBitmapDestG.UnlockBits(bitmapDataDstG);
-            imageBitmapDestB.UnlockBits(bitmapDataDstB);
+            imageBitmapDest.UnlockBits(bitmapDataDst);
         }
 
         public static void rotacionaDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
