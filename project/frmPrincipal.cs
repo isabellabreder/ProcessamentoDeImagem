@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -46,99 +47,183 @@ namespace ProcessamentoImagens
 
         private void luminânciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.convert_to_gray(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void negativoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.negativo(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void luminânciaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.convert_to_grayDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void negativoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.negativoDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
+
         }
 
         private void espelhamentoDiagonalToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.espelhaDiagonalDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void espelhamentoHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.horizontalDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void separarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Random r = new Random();
             Filtros.separaCanaisDMA(imageBitmap, imgDest, r.Next(150) % 3);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void espelhamentoVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.verticalDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void rotacionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image.Height, image.Width);
             imageBitmap = (Bitmap)image;
             Filtros.rotacionaDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void pretoBrancoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.pretoBrancoDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void fatiamentoDeBitsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.fatiamento(imageBitmap, imgDest, 7);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void equalizaçãoDoHistogramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Filtros.equalizacao(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void suavizaçãoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,6 +236,9 @@ namespace ProcessamentoImagens
 
         private void RGBToHSIToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             Bitmap cinza = new Bitmap(image);
             imageBitmap = (Bitmap)image;
@@ -163,6 +251,10 @@ namespace ProcessamentoImagens
             pb1.Image = imgh;
             pb2.Image = imgs;
             pb3.Image = imgi;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void PictBoxImg1_MouseMove(object sender, MouseEventArgs e)
@@ -185,6 +277,9 @@ namespace ProcessamentoImagens
 
         private void RGBToCMYToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
             Bitmap imgc = new Bitmap(image);
@@ -195,10 +290,17 @@ namespace ProcessamentoImagens
             pb1.Image = imgc;
             pb2.Image = imgm;
             pb3.Image = imgy;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void TrkbHue_ValueChanged(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             lbHue.Text = trkbHue.Value.ToString();
             Bitmap imgDest = new Bitmap(image);
             Bitmap cinza = new Bitmap(image);
@@ -212,10 +314,17 @@ namespace ProcessamentoImagens
             pb1.Image = imgh;
             pb2.Image = imgs;
             pb3.Image = imgi;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
 
         private void TrackBar2_ValueChanged(object sender, EventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             lbBrilho.Text = trkbBrilho.Value.ToString();
             lbHue.Text = trkbHue.Value.ToString();
             Bitmap imgDest = new Bitmap(image);
@@ -230,6 +339,10 @@ namespace ProcessamentoImagens
             pb1.Image = imgh;
             pb2.Image = imgs;
             pb3.Image = imgi;
+
+            stopwatch.Stop();
+            TimeSpan elapsed = stopwatch.Elapsed;
+            System.Diagnostics.Debug.WriteLine($"Elapsed time: {elapsed.TotalMilliseconds} ms");
         }
     }
 }
