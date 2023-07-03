@@ -119,3 +119,14 @@ D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/Pr
 D:/Documentos/GitHub/ProcessamentoDeImagem/Processamento de Imagens/obj/Debug/ProcessamentoImagens.pdb
 /home/isabellabreder/unicamp/MC970/ProcessamentoDeImagem/project/obj/Debug/ProcessamentoImagens.exe
 /home/isabellabreder/unicamp/MC970/ProcessamentoDeImagem/project/obj/Debug/ProcessamentoImagens.pdb
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.csproj.AssemblyReference.cache
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.csproj.SuggestedBindingRedirects.cache
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.frmPrincipal.resources
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.Properties.Resources.resources
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.csproj.GenerateResource.cache
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.csproj.CoreCompileInputs.cache
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.exe
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\obj\Debug\ProcessamentoImagens.pdb
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\bin\Debug\ProcessamentoImagens.exe.config
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\bin\Debug\ProcessamentoImagens.exe
+C:\Users\vinid\source\repos\ProcessamentoDeImagemParalelo\project\bin\Debug\ProcessamentoImagens.pdb

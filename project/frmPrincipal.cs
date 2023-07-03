@@ -94,18 +94,18 @@ namespace ProcessamentoImagens
 
         private void separarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap imgDest = new Bitmap(image);
+            Bitmap imgDestR = new Bitmap(image), imgDestG = new Bitmap(image), imgDestB = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            Random r = new Random();
-            Filtros.separaCanaisDMA(imageBitmap, imgDest, r.Next(150) % 3);
-            pictBoxImg2.Image = imgDest;
+            // Random r = new Random();
+            Filtros.separaCanaisDMA(imageBitmap, imgDestR, imgDestG, imgDestB);
+            pictBoxImg2.Image = imgDestR;
         }
 
         private void espelhamentoVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            Filtros.verticallDMA(imageBitmap, imgDest);
+            Filtros.verticalDMA(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
         }
 
@@ -129,7 +129,7 @@ namespace ProcessamentoImagens
         {
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            Filtros.fatiamento(imageBitmap, imgDest, openFileDialog.FileName, 7);
+            Filtros.fatiamento(imageBitmap, imgDest, 7);
             pictBoxImg2.Image = imgDest;
         }
 
@@ -158,7 +158,7 @@ namespace ProcessamentoImagens
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
 
-            Filtros.RBGtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, 0, 0);
+            Filtros.RGBtoHSI(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;
@@ -187,14 +187,14 @@ namespace ProcessamentoImagens
         {
             Bitmap imgDest = new Bitmap(image);
             imageBitmap = (Bitmap)image;
-            Bitmap imgh = new Bitmap(image);
-            Bitmap imgs = new Bitmap(image);
-            Bitmap imgi = new Bitmap(image);
-            Filtros.RBGtoCMY(imageBitmap, imgDest, imgh, imgs, imgi);
+            // Bitmap imgh = new Bitmap(image);
+            // Bitmap imgs = new Bitmap(image);
+            // Bitmap imgi = new Bitmap(image);
+            Filtros.RGBtoCMY(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
-            pb1.Image = imgh;
-            pb2.Image = imgs;
-            pb3.Image = imgi;
+            // pb1.Image = imgh;
+            // pb2.Image = imgs;
+            // pb3.Image = imgi;
         }
 
         private void TrkbHue_ValueChanged(object sender, EventArgs e)
@@ -207,7 +207,7 @@ namespace ProcessamentoImagens
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
 
-            Filtros.RBGtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, trkbHue.Value, trkbBrilho.Value);
+            Filtros.RGBtoHSI(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;
@@ -225,7 +225,7 @@ namespace ProcessamentoImagens
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
 
-            Filtros.RBGtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, trkbHue.Value, trkbBrilho.Value);
+            Filtros.RGBtoHSI(imageBitmap, imgDest);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;

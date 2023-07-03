@@ -159,86 +159,130 @@ namespace ProcessamentoImagens
         {
             int width = imageBitmapSrc.Width;
             int height = imageBitmapSrc.Height;
+            int pixelSize = 3;
 
-            Parallel.For(0, height, y =>
+            BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            unsafe
             {
-                for (int x = 0; x < width; x++)
+                byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
+                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
+
+                Parallel.For(0, height, y =>
                 {
-                    Color cor = imageBitmapSrc.GetPixel(x, y);
-                    double r = cor.R / 255.0;
-                    double g = cor.G / 255.0;
-                    double b = cor.B / 255.0;
+                    byte* srcLine = src + (y * bitmapDataSrc.Stride);
+                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
 
-                    double h = 0.0;
-                    double s = 0.0;
-                    double i = 0.0;
-
-                    double minRGB = Math.Min(Math.Min(r, g), b);
-                    double maxRGB = Math.Max(Math.Max(r, g), b);
-                    double delta = maxRGB - minRGB;
-
-                    // Calcula o valor da intensidade (I)
-                    i = (r + g + b) / 3.0;
-
-                    // Caso especial: se a intensidade for zero, então a cor é preta (H = 0 e S = 0)
-                    if (i != 0.0)
+                    for (int x = 0; x < width; x++)
                     {
-                        // Calcula a saturação (S)
-                        s = 1 - (minRGB / i);
+                        byte* srcPixel = srcLine + (x * pixelSize);
+                        byte* dstPixel = dstLine + (x * pixelSize);
 
-                        // Calcula o matiz (H)
-                        if (delta == 0)
+                        double r = srcPixel[0] / 255.0;
+                        double g = srcPixel[1] / 255.0;
+                        double b = srcPixel[2] / 255.0;
+
+                        double h = 0.0;
+                        double s = 0.0;
+                        double i = 0.0;
+
+                        double minRGB = Math.Min(Math.Min(r, g), b);
+                        double maxRGB = Math.Max(Math.Max(r, g), b);
+                        double delta = maxRGB - minRGB;
+
+                        // Calcula o valor da intensidade (I)
+                        i = (r + g + b) / 3.0;
+
+                        // Caso especial: se a intensidade for zero, então a cor é preta (H = 0 e S = 0)
+                        if (i != 0.0)
                         {
-                            h = 0;
-                        }
-                        else if (r == maxRGB)
-                        {
-                            h = (g - b) / delta;
-                        }
-                        else if (g == maxRGB)
-                        {
-                            h = 2 + (b - r) / delta;
-                        }
-                        else if (b == maxRGB)
-                        {
-                            h = 4 + (r - g) / delta;
+                            // Calcula a saturação (S)
+                            s = 1 - (minRGB / i);
+
+                            // Calcula o matiz (H)
+                            if (delta == 0)
+                            {
+                                h = 0;
+                            }
+                            else if (r == maxRGB)
+                            {
+                                h = (g - b) / delta;
+                            }
+                            else if (g == maxRGB)
+                            {
+                                h = 2 + (b - r) / delta;
+                            }
+                            else if (b == maxRGB)
+                            {
+                                h = 4 + (r - g) / delta;
+                            }
+
+                            h *= 60;
+                            if (h < 0)
+                            {
+                                h += 360;
+                            }
                         }
 
-                        h *= 60;
-                        if (h < 0)
-                        {
-                            h += 360;
-                        }
+                        int newHue = (int)Math.Round(h);
+                        int newSaturation = (int)Math.Round(s * 255);
+                        int newIntensity = (int)Math.Round(i * 255);
+
+                        dstPixel[0] = (byte)newHue;
+                        dstPixel[1] = (byte)newSaturation;
+                        dstPixel[2] = (byte)(newIntensity);
                     }
+                });
 
-                    int newHue = (int)Math.Round(h);
-                    int newSaturation = (int)Math.Round(s * 255);
-                    int newIntensity = (int)Math.Round(i * 255);
+            }
 
-                    Color newColor = Color.FromArgb(newHue, newSaturation, newIntensity);
-                    imageBitmapDest.SetPixel(x, y, newColor);
-                }
-            });
+            imageBitmapSrc.UnlockBits(bitmapDataSrc);
+            imageBitmapDest.UnlockBits(bitmapDataDst);
+
         }
 
         public static void RGBtoCMY(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
         {
             int width = imageBitmapSrc.Width;
             int height = imageBitmapSrc.Height;
+            int pixelSize = 3;
 
-            Parallel.For(0, height, y =>
+            BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            unsafe
             {
-                for (int x = 0; x < width; x++)
-                {
-                    Color cor = imageBitmapSrc.GetPixel(x, y);
-                    int c = 255 - cor.R;
-                    int m = 255 - cor.G;
-                    int y = 255 - cor.B;
+                byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
+                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
 
-                    Color newColor = Color.FromArgb(c, m, y);
-                    imageBitmapDest.SetPixel(x, y, newColor);
-                }
-            });
+                Parallel.For(0, height, y =>
+                {
+                    byte* srcLine = src + (y * bitmapDataSrc.Stride);
+                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
+                 
+                    for (int x = 0; x < width; x++)
+                    {
+                        byte* srcPixel = srcLine + (x * pixelSize);
+                        byte* dstPixel = dstLine + (x * pixelSize);
+
+                        dstPixel[0] = (byte)(255 - srcPixel[0]);
+                        dstPixel[1] = (byte)(255 - srcPixel[1]);
+                        dstPixel[2] = (byte)(255 - srcPixel[2]);
+                    }
+                });
+
+            }
+
+            imageBitmapSrc.UnlockBits(bitmapDataSrc);
+            imageBitmapDest.UnlockBits(bitmapDataDst);
+
         }
 
         public static void pretoBrancoDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
@@ -252,8 +296,6 @@ namespace ProcessamentoImagens
 
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
 
             unsafe
             {
@@ -304,8 +346,6 @@ namespace ProcessamentoImagens
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
-
             unsafe
             {
                 byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
@@ -314,7 +354,7 @@ namespace ProcessamentoImagens
                 Parallel.For(0, height, y =>
                 {
                     byte* srcLine = src + (y * bitmapDataSrc.Stride);
-                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
+                    byte* dstLine = dst + ((height - y - 1) * bitmapDataDst.Stride);
 
                     for (int x = 0; x < width; x++)
                     {
@@ -333,86 +373,6 @@ namespace ProcessamentoImagens
         }
 
         // sem acesso direto a memória
-        public static void inverteRBDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
-        {
-            int width = imageBitmapSrc.Width;
-            int height = imageBitmapSrc.Height;
-            int pixelSize = 3;
-
-            BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
-
-            unsafe
-            {
-                byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
-                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
-
-                Parallel.For(0, height, y =>
-                {
-                    byte* srcLine = src + (y * bitmapDataSrc.Stride);
-                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
-
-                    for (int x = 0; x < width; x++)
-                    {
-                        byte* srcPixel = srcLine + (x * pixelSize);
-                        byte* dstPixel = dstLine + (x * pixelSize);
-
-                        dstPixel[0] = (byte)(255 - srcPixel[0]);
-                        dstPixel[1] = srcPixel[1];
-                        dstPixel[2] = (byte)(255 - srcPixel[2]);
-                    }
-                });
-            }
-
-            imageBitmapSrc.UnlockBits(bitmapDataSrc);
-            imageBitmapDest.UnlockBits(bitmapDataDst);
-        }
-
-        public static void espelhaDiagonalDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
-        {
-            int width = imageBitmapSrc.Width;
-            int height = imageBitmapSrc.Height;
-            int pixelSize = 3;
-
-            BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
-                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
-
-            unsafe
-            {
-                byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
-                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
-
-                Parallel.For(0, height, y =>
-                {
-                    byte* srcLine = src + (y * bitmapDataSrc.Stride);
-                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
-
-                    for (int x = 0; x < width; x++)
-                    {
-                        byte* srcPixel = srcLine + (x * pixelSize);
-                        byte* dstPixel = dstLine + ((width - x - 1) * pixelSize);
-
-                        dstPixel[0] = srcPixel[0];
-                        dstPixel[1] = srcPixel[1];
-                        dstPixel[2] = srcPixel[2];
-                    }
-                });
-            }
-
-            imageBitmapSrc.UnlockBits(bitmapDataSrc);
-            imageBitmapDest.UnlockBits(bitmapDataDst);
-        }
-
         public static void inverteRBDMA(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
         {
             int width = imageBitmapSrc.Width;
@@ -527,9 +487,6 @@ namespace ProcessamentoImagens
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, height, width),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-            int paddingSrc = bitmapDataSrc.Stride - (width * pixelSize);
-            int paddingDst = bitmapDataDst.Stride - (height * pixelSize);
-
             unsafe
             {
                 byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
@@ -538,12 +495,12 @@ namespace ProcessamentoImagens
                 Parallel.For(0, height, y =>
                 {
                     byte* srcLine = src + (y * bitmapDataSrc.Stride);
-                    byte* dstLine = dst + (y * pixelSize);
+                    byte* dstCol = dst + ((height - y - 1) * pixelSize);
 
                     for (int x = 0; x < width; x++)
                     {
                         byte* srcPixel = srcLine + (x * pixelSize);
-                        byte* dstPixel = dstLine + ((height - y - 1) * bitmapDataDst.Stride) + (x * pixelSize);
+                        byte* dstPixel = dstCol + (x * bitmapDataDst.Stride);
 
                         dstPixel[0] = srcPixel[0];
                         dstPixel[1] = srcPixel[1];
@@ -567,8 +524,6 @@ namespace ProcessamentoImagens
 
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
 
             unsafe
             {
@@ -608,8 +563,6 @@ namespace ProcessamentoImagens
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
-
             unsafe
             {
                 byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
@@ -647,8 +600,6 @@ namespace ProcessamentoImagens
 
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
 
             unsafe
             {
@@ -691,8 +642,6 @@ namespace ProcessamentoImagens
 
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-
-            int padding = bitmapDataSrc.Stride - (width * pixelSize);
 
             // Cria um histograma de tons de cinza
             int[] histogram = new int[256];
