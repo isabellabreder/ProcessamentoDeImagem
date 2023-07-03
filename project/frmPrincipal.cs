@@ -158,7 +158,7 @@ namespace ProcessamentoImagens
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
 
-            Filtros.RGBtoHSI(imageBitmap, imgDest);
+            Filtros.RGBtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, 0, 0);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;
@@ -207,7 +207,7 @@ namespace ProcessamentoImagens
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
 
-            Filtros.RGBtoHSI(imageBitmap, imgDest);
+            Filtros.RGBtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, trkbHue.Value, trkbBrilho.Value);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;
@@ -225,7 +225,7 @@ namespace ProcessamentoImagens
             Bitmap imgs = new Bitmap(image);
             Bitmap imgi = new Bitmap(image);
 
-            Filtros.RGBtoHSI(imageBitmap, imgDest);
+            Filtros.RGBtoHSI(imageBitmap, imgDest, cinza, imgh, imgs, imgi, trkbHue.Value, trkbBrilho.Value);
             pictBoxImg2.Image = imgDest;
             pb1.Image = imgh;
             pb2.Image = imgs;

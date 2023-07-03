@@ -155,93 +155,98 @@ namespace ProcessamentoImagens
             imageBitmapDest.UnlockBits(bitmapDataDst);
         }
 
-        public static void RGBtoHSI(Bitmap imageBitmapSrc, Bitmap imageBitmapDest)
+        public static void RGBtoHSI(Bitmap imageSrc, Bitmap imgDest, Bitmap cinza, Bitmap imgH, Bitmap imgS, Bitmap imgI, int hue, int intensidade)
         {
-            int width = imageBitmapSrc.Width;
-            int height = imageBitmapSrc.Height;
-            int pixelSize = 3;
 
-            BitmapData bitmapDataSrc = imageBitmapSrc.LockBits(new Rectangle(0, 0, width, height),
+            int width = imageSrc.Width, height = imageSrc.Height, pixelSize = 3;
+
+            convert_to_grayDMA(imageSrc, cinza);
+
+            BitmapData bitmapDataSrcC = imageSrc.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
-            BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
+            BitmapData bitmapDataDstC = imgDest.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataCinza = cinza.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataHue = imgH.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataSat = imgS.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataInt = imgI.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
             unsafe
             {
-                byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
-                byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
+                byte* src = (byte*)bitmapDataSrcC.Scan0.ToPointer();
+                byte* dst = (byte*)bitmapDataDstC.Scan0.ToPointer();
+                byte* cin = (byte*)bitmapDataCinza.Scan0.ToPointer();
+                byte* bh = (byte*)bitmapDataHue.Scan0.ToPointer();
+                byte* bs = (byte*)bitmapDataSat.Scan0.ToPointer();
+                byte* bi = (byte*)bitmapDataInt.Scan0.ToPointer();
 
                 Parallel.For(0, height, y =>
                 {
-                    byte* srcLine = src + (y * bitmapDataSrc.Stride);
-                    byte* dstLine = dst + (y * bitmapDataDst.Stride);
+                    byte* srcLine = src + (y * bitmapDataSrcC.Stride);
+                    byte* dstLine = dst + (y * bitmapDataDstC.Stride);
+                    byte* bhLine = bh + (y * bitmapDataHue.Stride);
+                    byte* bsLine = bs + (y * bitmapDataSat.Stride);
+                    byte* biLine = bi + (y * bitmapDataInt.Stride);
 
                     for (int x = 0; x < width; x++)
                     {
+                        ColorHsi hsi;
+
                         byte* srcPixel = srcLine + (x * pixelSize);
                         byte* dstPixel = dstLine + (x * pixelSize);
+                        byte* bhPixel = bhLine + (x * pixelSize);
+                        byte* bsPixel = bsLine + (x * pixelSize);
+                        byte* biPixel = biLine + (x * pixelSize);
 
-                        double r = srcPixel[0] / 255.0;
-                        double g = srcPixel[1] / 255.0;
-                        double b = srcPixel[2] / 255.0;
 
-                        double h = 0.0;
-                        double s = 0.0;
-                        double i = 0.0;
+                        int b = srcPixel[0];
+                        int g = srcPixel[1];
+                        int r = srcPixel[2];
 
-                        double minRGB = Math.Min(Math.Min(r, g), b);
-                        double maxRGB = Math.Max(Math.Max(r, g), b);
-                        double delta = maxRGB - minRGB;
+                        Color cor = Color.FromArgb(r, g, b);
+                        hsi = HSI(cor, hue, intensidade);
+                        cor = RGB(hsi);
 
-                        // Calcula o valor da intensidade (I)
-                        i = (r + g + b) / 3.0;
+                        dstPixel[0] = (byte)cor.B;
+                        dstPixel[1] = (byte)cor.G;
+                        dstPixel[2] = (byte)cor.R;
 
-                        // Caso especial: se a intensidade for zero, então a cor é preta (H = 0 e S = 0)
-                        if (i != 0.0)
-                        {
-                            // Calcula a saturação (S)
-                            s = 1 - (minRGB / i);
+                        hsi.H = hsi.H > 255 ? 255 : hsi.H;
+                        hsi.S = hsi.S > 255 ? 255 : hsi.S;
+                        hsi.I = hsi.I > 255 ? 255 : hsi.I;
 
-                            // Calcula o matiz (H)
-                            if (delta == 0)
-                            {
-                                h = 0;
-                            }
-                            else if (r == maxRGB)
-                            {
-                                h = (g - b) / delta;
-                            }
-                            else if (g == maxRGB)
-                            {
-                                h = 2 + (b - r) / delta;
-                            }
-                            else if (b == maxRGB)
-                            {
-                                h = 4 + (r - g) / delta;
-                            }
+                        bhPixel[0] = (byte)hsi.H;
+                        bhPixel[1] = (byte)hsi.H;
+                        bhPixel[2] = (byte)hsi.H;
 
-                            h *= 60;
-                            if (h < 0)
-                            {
-                                h += 360;
-                            }
-                        }
-
-                        int newHue = (int)Math.Round(h);
-                        int newSaturation = (int)Math.Round(s * 255);
-                        int newIntensity = (int)Math.Round(i * 255);
-
-                        dstPixel[0] = (byte)newHue;
-                        dstPixel[1] = (byte)newSaturation;
-                        dstPixel[2] = (byte)(newIntensity);
+                        bsPixel[0] = (byte)hsi.S;
+                        bsPixel[1] = (byte)hsi.S;
+                        bsPixel[2] = (byte)hsi.S;
+                        
+                        biPixel[0] = (byte)hsi.I;
+                        biPixel[1] = (byte)hsi.I;
+                        biPixel[2] = (byte)hsi.I;
+                        
                     }
                 });
 
             }
 
-            imageBitmapSrc.UnlockBits(bitmapDataSrc);
-            imageBitmapDest.UnlockBits(bitmapDataDst);
+            imageSrc.UnlockBits(bitmapDataSrcC);
+            imgDest.UnlockBits(bitmapDataDstC);
+            cinza.UnlockBits(bitmapDataCinza);
+            imgH.UnlockBits(bitmapDataHue);
+            imgS.UnlockBits(bitmapDataSat);
+            imgI.UnlockBits(bitmapDataInt);
 
         }
 
