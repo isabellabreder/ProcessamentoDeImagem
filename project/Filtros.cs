@@ -250,7 +250,7 @@ namespace ProcessamentoImagens
 
         }
 
-        public static void RGBtoCMY(Bitmap imageBitmapSrc, Bitmap imageBitmapDest, Bitmap imgH, Bitmap imgS, Bitmap imgI)
+        public static void RGBtoCMY(Bitmap imageBitmapSrc, Bitmap imageBitmapDest, Bitmap imgC, Bitmap imgM, Bitmap imgY)
         {
             int width = imageBitmapSrc.Width;
             int height = imageBitmapSrc.Height;
@@ -262,20 +262,38 @@ namespace ProcessamentoImagens
             BitmapData bitmapDataDst = imageBitmapDest.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
+            BitmapData bitmapDataC = imgC.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataM = imgM.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
+            BitmapData bitmapDataY = imgY.LockBits(new Rectangle(0, 0, width, height),
+                ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+
             unsafe
             {
                 byte* src = (byte*)bitmapDataSrc.Scan0.ToPointer();
                 byte* dst = (byte*)bitmapDataDst.Scan0.ToPointer();
+                byte* bc = (byte*)bitmapDataC.Scan0.ToPointer();
+                byte* bm = (byte*)bitmapDataM.Scan0.ToPointer();
+                byte* by = (byte*)bitmapDataY.Scan0.ToPointer();
 
                 Parallel.For(0, height, y =>
                 {
                     byte* srcLine = src + (y * bitmapDataSrc.Stride);
                     byte* dstLine = dst + (y * bitmapDataDst.Stride);
-                 
+                    byte* bcLine = bc + (y * bitmapDataC.Stride);
+                    byte* bmLine = bm + (y * bitmapDataM.Stride);
+                    byte* byLine = by + (y * bitmapDataY.Stride);
+
                     for (int x = 0; x < width; x++)
                     {
                         byte* srcPixel = srcLine + (x * pixelSize);
                         byte* dstPixel = dstLine + (x * pixelSize);
+                        byte* bcPixel = bcLine + (x * pixelSize);
+                        byte* bmPixel = bmLine + (x * pixelSize);
+                        byte* byPixel = byLine + (x * pixelSize);
 
 
                         int b = srcPixel[0];
@@ -287,7 +305,18 @@ namespace ProcessamentoImagens
                         dstPixel[0] = (byte)cor.B;
                         dstPixel[1] = (byte)cor.G;
                         dstPixel[2] = (byte)cor.R;
-                        
+
+                        bcPixel[0] = (byte)(cor.R);
+                        bcPixel[1] = (byte)(cor.R);
+                        bcPixel[2] = (byte)(cor.R);
+
+                        bmPixel[0] = (byte)(cor.G);
+                        bmPixel[1] = (byte)(cor.G);
+                        bmPixel[2] = (byte)(cor.G);
+
+                        byPixel[0] = (byte)(cor.B);
+                        byPixel[1] = (byte)(cor.B);
+                        byPixel[2] = (byte)(cor.B);
                     }
                 });
 
@@ -295,6 +324,9 @@ namespace ProcessamentoImagens
 
             imageBitmapSrc.UnlockBits(bitmapDataSrc);
             imageBitmapDest.UnlockBits(bitmapDataDst);
+            imgC.UnlockBits(bitmapDataC);
+            imgM.UnlockBits(bitmapDataM);
+            imgY.UnlockBits(bitmapDataY);
 
         }
 
